@@ -19,7 +19,7 @@ Insérez une capture d'écran ou un GIF montrant l'interface utilisateur de votr
 
 ## Installation
 
-1. Clonez le dépôt : `git clone https://github.com/votre_nom/votre_projet.git`
+1. Clonez le dépôt : `git clone https://github.com/M-U-C-K-A/unit-converter.git`
 2. Accédez au répertoire du projet : `cd votre_projet`
 3. Ouvrez `index.html` dans votre navigateur préféré.
 
@@ -32,15 +32,13 @@ Insérez une capture d'écran ou un GIF montrant l'interface utilisateur de votr
 - Obtenez le résultat de la conversion.
 
 ## Exemples
+L'application de convertisseur de mesures est simple à utiliser. Suivez ces étapes pour effectuer une conversion :
 
-```python
-# Exemple d'utilisation en Python
-from convertisseur_mesure import kilo_en_pound, metre_en_yard, kelvin_en_celsius
-
-print(kilo_en_pound(5))  # Convertit 5 kilos en pounds.
-print(metre_en_yard(10))  # Convertit 10 mètres en yards.
-print(kelvin_en_celsius(300))  # Convertit 300 Kelvin en degrés Celsius.
-```
+1. Sélectionnez l'unité de mesure d'origine dans le premier menu déroulant.
+2. Entrez la valeur que vous souhaitez convertir dans le champ prévu à cet effet.
+3. Sélectionnez l'unité de mesure cible dans le deuxième menu déroulant.
+4. Cliquez sur le bouton "Convertir".
+5. Le résultat de la conversion s'affichera sur l'écran.
 
 ## Contribuer
 Les contributions sont les bienvenues ! Pour les changements majeurs, veuillez d'abord ouvrir une discussion pour discuter de ce que vous aimeriez changer.
