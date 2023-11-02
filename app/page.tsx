@@ -1,6 +1,20 @@
+"use client"
 import { useState, ChangeEvent } from 'react';
+import InputField from '@/components/InputField';
+import SelectUnit from '@/components/SelectUnit';
+import converter from '@/components/converter';
 
-const units: string[] = ['Celsius', 'Fahrenheit', 'Kelvin'];
+const units: string[] = [
+  'Celsius',
+  'Fahrenheit',
+  'Kelvin',
+  'Meters',
+  'Yards',
+  'Feet',
+  'Kilograms',
+  'Pounds',
+  'Ounces',
+];
 
 export default function Home() {
   const [inputValue, setInputValue] = useState<string>('');
@@ -10,33 +24,17 @@ export default function Home() {
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
-    convert(e.target.value);
+    setOutputValue(converter(e.target.value, inputUnit, outputUnit));
   };
 
   const handleInputUnitChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setInputUnit(e.target.value);
-    convert(inputValue, e.target.value, outputUnit);
+    setOutputValue(converter(inputValue, e.target.value, outputUnit));
   };
 
   const handleOutputUnitChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setOutputUnit(e.target.value);
-    convert(inputValue, inputUnit, e.target.value);
-  };
-
-  const convert = (value: string, from: string = inputUnit, to: string = outputUnit) => {
-    if (from === 'Celsius' && to === 'Fahrenheit') {
-      setOutputValue(((parseFloat(value) * 9) / 5 + 32).toString());
-    } else if (from === 'Celsius' && to === 'Kelvin') {
-      setOutputValue((parseFloat(value) + 273.15).toString());
-    } else if (from === 'Fahrenheit' && to === 'Celsius') {
-      setOutputValue((((parseFloat(value) - 32) * 5) / 9).toString());
-    } else if (from === 'Fahrenheit' && to === 'Kelvin') {
-      setOutputValue((((parseFloat(value) - 32) * 5) / 9 + 273.15).toString());
-    } else if (from === 'Kelvin' && to === 'Celsius') {
-      setOutputValue((parseFloat(value) - 273.15).toString());
-    } else if (from === 'Kelvin' && to === 'Fahrenheit') {
-      setOutputValue((((parseFloat(value) - 273.15) * 9) / 5 + 32).toString());
-    }
+    setOutputValue(converter(inputValue, inputUnit, e.target.value));
   };
 
   return (
@@ -44,24 +42,9 @@ export default function Home() {
       <div className="max-w-md w-full">
         <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <h1 className="text-2xl mb-6">Unit Converter</h1>
-          <input
-            type="number"
-            value={inputValue}
-            onChange={handleInputChange}
-            className="w-full mb-4 p-2 border border-gray-300 rounded"
-          />
+          <InputField value={inputValue} onChange={handleInputChange} />
           <div className="flex justify-between mb-4">
-            <select
-              value={inputUnit}
-              onChange={handleInputUnitChange}
-              className="w-1/2 p-2 border border-gray-300 rounded"
-            >
-              {units.map((unit) => (
-                <option key={unit} value={unit}>
-                  {unit}
-                </option>
-              ))}
-            </select>
+            <SelectUnit value={inputUnit} options={units} onChange={handleInputUnitChange} />
             <span className="text-2xl">=</span>
             <input
               type="text"
@@ -69,17 +52,7 @@ export default function Home() {
               readOnly
               className="w-1/2 p-2 border border-gray-300 rounded"
             />
-            <select
-              value={outputUnit}
-              onChange={handleOutputUnitChange}
-              className="w-1/2 p-2 border border-gray-300 rounded"
-            >
-              {units.map((unit) => (
-                <option key={unit} value={unit}>
-                  {unit}
-                </option>
-              ))}
-            </select>
+            <SelectUnit value={outputUnit} options={units} onChange={handleOutputUnitChange} />
           </div>
         </div>
       </div>
