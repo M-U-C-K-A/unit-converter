@@ -1,3 +1,5 @@
+![illustration](https://github.com/M-U-C-K-A/unit-converter/assets/96072629/908fcf69-eb39-407e-a6ce-5dd63c172e16)
+
 # Convertisseur de Mesures
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/votre_nom/votre_projet/blob/main/LICENSE)
