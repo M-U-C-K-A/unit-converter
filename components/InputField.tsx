@@ -7,7 +7,11 @@ type InputFieldProps = {
 };
 
 const InputField = ({ value, onChange }: InputFieldProps) => {
-  return <input type="number" value={value} onChange={onChange} className="w-full mb-4 p-2 border border-gray-300 rounded" />;
+  return <input 
+  type="number" 
+  value={value} 
+  onChange={onChange}
+  className='' />;
 };
 
 export default InputField;

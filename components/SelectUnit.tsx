@@ -9,7 +9,7 @@ type SelectUnitProps = {
 
 const SelectUnit = ({ value, options, onChange }: SelectUnitProps) => {
   return (
-    <select value={value} onChange={onChange} className="w-1/2 p-2 border border-gray-300 rounded">
+    <select value={value} onChange={onChange}>
       {options.map((unit) => (
         <option key={unit} value={unit}>
           {unit}

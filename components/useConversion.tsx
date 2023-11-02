@@ -27,13 +27,6 @@ const useConversion = (initialInputUnit: string, initialOutputUnit: string) => {
     setOutputValue(converter(inputValue, inputUnit, outputUnit));
   };
 
-  const handleSwap = () => {
-    const temp = inputUnit;
-    setInputUnit(outputUnit);
-    setOutputUnit(temp);
-    handleConversion();
-  };
-
   return {
     inputValue,
     outputValue,
@@ -43,7 +36,6 @@ const useConversion = (initialInputUnit: string, initialOutputUnit: string) => {
     handleInputUnitChange,
     handleOutputUnitChange,
     handleConversion,
-    handleSwap,
   };
 };
 

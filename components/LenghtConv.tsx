@@ -15,26 +15,21 @@ const LengthConverter = () => {
     } = useConversion('Meters', 'Yards');
 
     return (
-        <div className="join mb-8">
-            <div>
-                <InputField value={inputValue} onChange={handleInputChange} placeholder="Enter distance" />
-                <span className="text-gray-500">Distance</span>
-            </div>
-            <SelectUnit
-                value={inputUnit}
-                options={['Meters', 'Yards', 'Feet']}
-                onChange={handleInputUnitChange}
-                className="join-item"
-            />
-            <button className="btn btn-circle btn-ghost join-item" onClick={() => {
-                const temp = inputUnit;
-                setInputUnit(outputUnit);
-                setOutputUnit(temp);
-                setOutputValue(converter(inputValue, outputUnit, inputUnit));
-            }}>
-                <span>&#8644;</span>
-            </button>
-            <div>
+        <>
+<h1 className="text-gray-200 w-full text-2xl">Distance</h1>
+            <div className="join mb-8  w-4/5">
+                <InputField
+                    value={inputValue}
+                    onChange={handleInputChange} />
+                <SelectUnit
+                    value={inputUnit}
+                    options={['Meters', 'Yards', 'Feet']}
+                    onChange={handleInputUnitChange}
+                />
+                <button className="btn btn-circle btn-ghost join-item" onClick={() => {
+                }}>
+                    <span>&#8644;</span>
+                </button>
                 <input
                     type="text"
                     value={outputValue}
@@ -42,15 +37,13 @@ const LengthConverter = () => {
                     className="input input-bordered join-item"
                     placeholder="Result"
                 />
-                <span className="text-gray-500">Converted</span>
+                <SelectUnit
+                    value={outputUnit}
+                    options={['Meters', 'Yards', 'Feet']}
+                    onChange={handleOutputUnitChange}
+                />
             </div>
-            <SelectUnit
-                value={outputUnit}
-                options={['Meters', 'Yards', 'Feet']}
-                onChange={handleOutputUnitChange}
-                className="select select-bordered join-item"
-            />
-        </div>
+        </>
     );
 };
 
