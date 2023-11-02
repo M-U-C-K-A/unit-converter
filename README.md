@@ -20,7 +20,7 @@ Insérez une capture d'écran ou un GIF montrant l'interface utilisateur de votr
 ## Installation
 
 1. Clonez le dépôt : `git clone https://github.com/M-U-C-K-A/unit-converter.git`
-2. Accédez au répertoire du projet : `cd votre_projet`
+2. Accédez au répertoire du projet : `cd UNITE`
 3. Ouvrez `index.html` dans votre navigateur préféré.
 
 ## Utilisation
