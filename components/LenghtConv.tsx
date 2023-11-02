@@ -1,46 +1,57 @@
-import { useState, ChangeEvent } from 'react';
+"use client"
 import InputField from './InputField';
 import SelectUnit from './SelectUnit';
-import converter from './converter';
+import useConversion from './useConversion';
 
-const DistanceConverter = () => {
-  const [inputValue, setInputValue] = useState<string>('');
-  const [outputValue, setOutputValue] = useState<string>('');
-  const [inputUnit, setInputUnit] = useState<string>('Meters');
-  const [outputUnit, setOutputUnit] = useState<string>('Yards');
+const LengthConverter = () => {
+    const {
+        inputValue,
+        outputValue,
+        inputUnit,
+        outputUnit,
+        handleInputChange,
+        handleInputUnitChange,
+        handleOutputUnitChange,
+    } = useConversion('Meters', 'Yards');
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-    setOutputValue(converter(e.target.value, inputUnit, outputUnit));
-  };
-
-  const handleInputUnitChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    setInputUnit(e.target.value);
-    setOutputValue(converter(inputValue, e.target.value, outputUnit));
-  };
-
-  const handleOutputUnitChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    setOutputUnit(e.target.value);
-    setOutputValue(converter(inputValue, inputUnit, e.target.value));
-  };
-
-  return (
-    <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-      <h1 className="text-2xl mb-6">Distance Converter</h1>
-      <InputField value={inputValue} onChange={handleInputChange} />
-      <div className="flex justify-between mb-4">
-        <SelectUnit value={inputUnit} options={['Meters', 'Yards', 'Feet']} onChange={handleInputUnitChange} />
-        <span className="text-2xl">=</span>
-        <input
-          type="text"
-          value={outputValue}
-          readOnly
-          className="w-1/2 p-2 border border-gray-300 rounded"
-        />
-        <SelectUnit value={outputUnit} options={['Meters', 'Yards', 'Feet']} onChange={handleOutputUnitChange} />
-      </div>
-    </div>
-  );
+    return (
+        <div className="join mb-8">
+            <div>
+                <InputField value={inputValue} onChange={handleInputChange} placeholder="Enter distance" />
+                <span className="text-gray-500">Distance</span>
+            </div>
+            <SelectUnit
+                value={inputUnit}
+                options={['Meters', 'Yards', 'Feet']}
+                onChange={handleInputUnitChange}
+                className="join-item"
+            />
+            <button className="btn btn-circle btn-ghost join-item" onClick={() => {
+                const temp = inputUnit;
+                setInputUnit(outputUnit);
+                setOutputUnit(temp);
+                setOutputValue(converter(inputValue, outputUnit, inputUnit));
+            }}>
+                <span>&#8644;</span>
+            </button>
+            <div>
+                <input
+                    type="text"
+                    value={outputValue}
+                    readOnly
+                    className="input input-bordered join-item"
+                    placeholder="Result"
+                />
+                <span className="text-gray-500">Converted</span>
+            </div>
+            <SelectUnit
+                value={outputUnit}
+                options={['Meters', 'Yards', 'Feet']}
+                onChange={handleOutputUnitChange}
+                className="select select-bordered join-item"
+            />
+        </div>
+    );
 };
 
-export default DistanceConverter;
+export default LengthConverter;

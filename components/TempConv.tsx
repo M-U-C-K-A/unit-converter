@@ -1,34 +1,24 @@
 "use client"
-import { useState, ChangeEvent } from 'react';
 import InputField from './InputField';
 import SelectUnit from './SelectUnit';
-import converter from './converter';
+import useConversion from './useConversion';
 
 const TemperatureConverter = () => {
-  const [inputValue, setInputValue] = useState<string>('');
-  const [outputValue, setOutputValue] = useState<string>('');
-  const [inputUnit, setInputUnit] = useState<string>('Celsius');
-  const [outputUnit, setOutputUnit] = useState<string>('Fahrenheit');
-
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-    setOutputValue(converter(e.target.value, inputUnit, outputUnit));
-  };
-
-  const handleInputUnitChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    setInputUnit(e.target.value);
-    setOutputValue(converter(inputValue, e.target.value, outputUnit));
-  };
-
-  const handleOutputUnitChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    setOutputUnit(e.target.value);
-    setOutputValue(converter(inputValue, inputUnit, e.target.value));
-  };
+  const {
+    inputValue,
+    outputValue,
+    inputUnit,
+    outputUnit,
+    handleInputChange,
+    handleInputUnitChange,
+    handleOutputUnitChange,
+  } = useConversion('Celsius', 'Fahrenheit');
 
   return (
     <div className="join mb-8">
       <div>
         <InputField value={inputValue} onChange={handleInputChange} placeholder="Enter temperature" />
+        <span className="text-gray-500">Temperature</span>
       </div>
       <SelectUnit
         value={inputUnit}
@@ -36,14 +26,24 @@ const TemperatureConverter = () => {
         onChange={handleInputUnitChange}
         className="join-item"
       />
-      <span className="indicator join-item">=</span>
-      <input
-        type="text"
-        value={outputValue}
-        readOnly
-        className="input input-bordered join-item"
-        placeholder="Result"
-      />
+      <button className="btn btn-circle btn-ghost join-item" onClick={() => {
+        const temp = inputUnit;
+        setInputUnit(outputUnit);
+        setOutputUnit(temp);
+        setOutputValue(converter(inputValue, outputUnit, inputUnit));
+      }}>
+        <span>&#8644;</span>
+      </button>
+      <div>
+        <input
+          type="text"
+          value={outputValue}
+          readOnly
+          className="input input-bordered join-item"
+          placeholder="Result"
+        />
+        <span className="text-gray-500">Converted</span>
+      </div>
       <SelectUnit
         value={outputUnit}
         options={['Celsius', 'Fahrenheit', 'Kelvin']}

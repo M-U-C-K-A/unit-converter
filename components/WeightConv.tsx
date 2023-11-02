@@ -1,44 +1,57 @@
+"use client"
 import { useState, ChangeEvent } from 'react';
 import InputField from './InputField';
 import SelectUnit from './SelectUnit';
-import converter from './converter';
+import useConversion from './useConversion';
+
 
 const WeightConverter = () => {
-  const [inputValue, setInputValue] = useState<string>('');
-  const [outputValue, setOutputValue] = useState<string>('');
-  const [inputUnit, setInputUnit] = useState<string>('Kilograms');
-  const [outputUnit, setOutputUnit] = useState<string>('Pounds');
-
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-    setOutputValue(converter(e.target.value, inputUnit, outputUnit));
-  };
-
-  const handleInputUnitChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    setInputUnit(e.target.value);
-    setOutputValue(converter(inputValue, e.target.value, outputUnit));
-  };
-
-  const handleOutputUnitChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    setOutputUnit(e.target.value);
-    setOutputValue(converter(inputValue, inputUnit, e.target.value));
-  };
+  const {
+    inputValue,
+    outputValue,
+    inputUnit,
+    outputUnit,
+    handleInputChange,
+    handleInputUnitChange,
+    handleOutputUnitChange,
+  } = useConversion('Kilograms', 'Pounds');
 
   return (
-    <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-      <h1 className="text-2xl mb-6">Weight Converter</h1>
-      <InputField value={inputValue} onChange={handleInputChange} />
-      <div className="flex justify-between mb-4">
-        <SelectUnit value={inputUnit} options={['Kilograms', 'Pounds', 'Ounces']} onChange={handleInputUnitChange} />
-        <span className="text-2xl">=</span>
+    <div className="join mb-8">
+      <div>
+        <InputField value={inputValue} onChange={handleInputChange} placeholder="Enter poids" />
+        <span className="text-gray-500">Poids</span>
+      </div>
+      <SelectUnit
+        value={inputUnit}
+        options={['Kilograms', 'Pounds', 'Ounces']}
+        onChange={handleInputUnitChange}
+        className="join-item"
+      />
+      <button className="btn btn-circle btn-ghost join-item" onClick={() => {
+        const temp = inputUnit;
+        setInputUnit(outputUnit);
+        setOutputUnit(temp);
+        setOutputValue(converter(inputValue, outputUnit, inputUnit));
+      }}>
+        <span>&#8644;</span>
+      </button>
+      <div>
         <input
           type="text"
           value={outputValue}
           readOnly
-          className="w-1/2 p-2 border border-gray-300 rounded"
+          className="input input-bordered join-item"
+          placeholder="Result"
         />
-        <SelectUnit value={outputUnit} options={['Kilograms', 'Pounds', 'Ounces']} onChange={handleOutputUnitChange} />
+        <span className="text-gray-500">Converted</span>
       </div>
+      <SelectUnit
+        value={outputUnit}
+        options={['Kilograms', 'Pounds', 'Ounces']}
+        onChange={handleOutputUnitChange}
+        className="select select-bordered join-item"
+      />
     </div>
   );
 };
