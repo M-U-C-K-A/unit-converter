@@ -53,7 +53,7 @@ Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de 
 
 
 ## Auteur
-Créé par Votre Nom.
+Créé par Hugo Delacour.
 
 ## Contact
 Pour toute question ou suggestion, n'hésitez pas à me contacter [par mail](mailto:hugodelacour.pro@gmail.com).
