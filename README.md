@@ -19,9 +19,11 @@ Insérez une capture d'écran ou un GIF montrant l'interface utilisateur de votr
 
 ## Installation
 
-1. Clonez le dépôt : `git clone https://github.com/M-U-C-K-A/unit-converter.git`
-2. Accédez au répertoire du projet : `cd UNITE`
-3. Ouvrez `index.html` dans votre navigateur préféré.
+1. Cloner le dépôt : ``git clone https://github.com/votre_nom/votre_projet.git``
+2. Accéder au répertoire du projet : ``cd UNITÉ``
+3. Installer les dépendances : ``npm install``
+4. Démarrer le serveur de développement : ``npm run dev``
+5. Ouvrir votre navigateur et accéder à l'URL `http://localhost:3000/` pour visualiser l'application.
 
 ## Utilisation
 
