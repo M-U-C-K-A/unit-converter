@@ -1,7 +1,8 @@
+"use client"
 import { useState, ChangeEvent } from 'react';
 import InputField from './InputField';
 import SelectUnit from './SelectUnit';
-import converter from '../utils/converter';
+import converter from './converter';
 
 const TemperatureConverter = () => {
   const [inputValue, setInputValue] = useState<string>('');
@@ -25,20 +26,30 @@ const TemperatureConverter = () => {
   };
 
   return (
-    <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-      <h1 className="text-2xl mb-6">Temperature Converter</h1>
-      <InputField value={inputValue} onChange={handleInputChange} />
-      <div className="flex justify-between mb-4">
-        <SelectUnit value={inputUnit} options={['Celsius', 'Fahrenheit', 'Kelvin']} onChange={handleInputUnitChange} />
-        <span className="text-2xl">=</span>
-        <input
-          type="text"
-          value={outputValue}
-          readOnly
-          className="w-1/2 p-2 border border-gray-300 rounded"
-        />
-        <SelectUnit value={outputUnit} options={['Celsius', 'Fahrenheit', 'Kelvin']} onChange={handleOutputUnitChange} />
+    <div className="join mb-8">
+      <div>
+        <InputField value={inputValue} onChange={handleInputChange} placeholder="Enter temperature" />
       </div>
+      <SelectUnit
+        value={inputUnit}
+        options={['Celsius', 'Fahrenheit', 'Kelvin']}
+        onChange={handleInputUnitChange}
+        className="join-item"
+      />
+      <span className="indicator join-item">=</span>
+      <input
+        type="text"
+        value={outputValue}
+        readOnly
+        className="input input-bordered join-item"
+        placeholder="Result"
+      />
+      <SelectUnit
+        value={outputUnit}
+        options={['Celsius', 'Fahrenheit', 'Kelvin']}
+        onChange={handleOutputUnitChange}
+        className="select select-bordered join-item"
+      />
     </div>
   );
 };
