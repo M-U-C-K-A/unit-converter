@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Convertisseur de Mesures
 
-## Getting Started
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/votre_nom/votre_projet/blob/main/LICENSE)
+[![GitHub release](https://img.shields.io/github/release/votre_nom/votre_projet.svg)](https://GitHub.com/votre_nom/votre_projet/releases/)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/votre_nom/votre_projet/graphs/commit-activity)
+[![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](http://shields.io/)
 
-First, run the development server:
+Un simple site web pour convertir des mesures de base : kilo en pound, metre en yard, kelvin en celsius.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Aperçu
+
+Insérez une capture d'écran ou un GIF montrant l'interface utilisateur de votre site.
+
+## Fonctionnalités
+
+- Conversion facile de différentes unités de mesure.
+- Interface utilisateur conviviale et intuitive.
+- Conversion rapide et précise.
+
+## Installation
+
+1. Clonez le dépôt : `git clone https://github.com/votre_nom/votre_projet.git`
+2. Accédez au répertoire du projet : `cd votre_projet`
+3. Ouvrez `index.html` dans votre navigateur préféré.
+
+## Utilisation
+
+- Sélectionnez l'unité de mesure de départ.
+- Entrez la valeur que vous souhaitez convertir.
+- Sélectionnez l'unité de mesure de conversion.
+- Cliquez sur le bouton "Convertir".
+- Obtenez le résultat de la conversion.
+
+## Exemples
+
+```python
+# Exemple d'utilisation en Python
+from convertisseur_mesure import kilo_en_pound, metre_en_yard, kelvin_en_celsius
+
+print(kilo_en_pound(5))  # Convertit 5 kilos en pounds.
+print(metre_en_yard(10))  # Convertit 10 mètres en yards.
+print(kelvin_en_celsius(300))  # Convertit 300 Kelvin en degrés Celsius.
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contribuer
+Les contributions sont les bienvenues ! Pour les changements majeurs, veuillez d'abord ouvrir une discussion pour discuter de ce que vous aimeriez changer.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Licence
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Auteur
+Créé par Votre Nom.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contact
+Pour toute question ou suggestion, n'hésitez pas à me contacter [par mail](mailto:hugodelacour.pro@gmail.com).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+> N'oubliez pas de donner une ⭐ si ce projet vous a été utile !
