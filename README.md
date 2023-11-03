@@ -44,6 +44,9 @@ L'application de convertisseur de mesures est simple à utiliser. Suivez ces ét
 4. Cliquez sur le bouton "Convertir".
 5. Le résultat de la conversion s'affichera sur l'écran.
 
+![exemples](https://github.com/M-U-C-K-A/unit-converter/assets/96072629/3a8a209d-db4d-43c8-91b9-ca8ec1d8d590)
+
+
 ## Contribuer
 Les contributions sont les bienvenues ! Pour les changements majeurs, veuillez d'abord ouvrir une discussion pour discuter de ce que vous aimeriez changer.
 
