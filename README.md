@@ -3,8 +3,8 @@
 # Convertisseur de Mesures
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/votre_nom/votre_projet/blob/main/LICENSE)
-[![GitHub release](https://img.shields.io/github/release/votre_nom/votre_projet.svg)](https://GitHub.com/votre_nom/votre_projet/releases/)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/votre_nom/votre_projet/graphs/commit-activity)
+[![GitHub release](https://img.shields.io/github/release/M-U-C-K-A/unit-converter.svg)](https://GitHub.com/M-U-C-K-A/unit-converter/releases/)
+[![Maintenance](https://img.shields.io/badge/Maintained-yes-green.svg)](https://GitHub.com/M-U-C-K-A/unit-converter/graphs/commit-activity)
 [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](http://shields.io/)
 
 Un simple site web pour convertir des mesures de base : kilo en pound, metre en yard, kelvin en celsius.
